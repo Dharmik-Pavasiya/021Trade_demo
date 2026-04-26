@@ -1,16 +1,14 @@
 # Watchlist Management App
 
-A production-grade Flutter application demonstrating a stock watchlist with drag-and-drop reordering functionality, built using **Clean Architecture** and the **BLoC pattern**.
+A Flutter application demonstrating a stock watchlist with drag-and-drop reordering functionality, built using **Clean Architecture** and the **BLoC pattern**.
 
 ## 🛠 Tech Stack
 - **Flutter Version:** 3.41.7
-- **State Management:** BLoC (flutter_bloc)
-- **Data Modeling:** Equatable
-- **Typography:** Google Fonts (Inter)
+- **State Management:** BLoC
 
 ## 🎯 Assignment Overview
 The goal of this project was to implement a watchlist management system that allows users to:
-1. View a list of stocks with real-time-like data (Price, Change, Category).
+1. View a list of stocks data.
 2. Enter an "Edit Mode" to manage the watchlist.
 3. Reorder stocks using drag-and-drop.
 4. Delete stocks from the list.
