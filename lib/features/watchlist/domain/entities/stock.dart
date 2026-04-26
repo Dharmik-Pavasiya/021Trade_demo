@@ -5,12 +5,6 @@ import 'package:equatable/equatable.dart';
 /// Contains basic information required to display the stock
 /// details in the list.
 class Stock extends Equatable {
-  final String symbol;
-  final String category;
-  final double price;
-  final double change;
-  final double changePercentage;
-
   const Stock({
     required this.symbol,
     required this.category,
@@ -19,12 +13,18 @@ class Stock extends Equatable {
     required this.changePercentage,
   });
 
+  final String symbol;
+  final String category;
+  final double price;
+  final double change;
+  final double changePercentage;
+
   @override
   List<Object?> get props => [
-        symbol,
-        category,
-        price,
-        change,
-        changePercentage,
-      ];
+    symbol,
+    category,
+    price,
+    change,
+    changePercentage,
+  ];
 }

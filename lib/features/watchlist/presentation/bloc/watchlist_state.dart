@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import '../../domain/entities/stock.dart';
+import 'package:watchlist_app/features/watchlist/presentation/bloc/bloc.dart';
 
 /// Base class for all watchlist states.
 abstract class WatchlistState extends Equatable {
@@ -14,18 +13,12 @@ class WatchlistInitial extends WatchlistState {}
 
 /// State representing a loaded watchlist.
 class WatchlistLoaded extends WatchlistState {
+  const WatchlistLoaded({required this.stocks, this.isEditing = false});
+
   final List<Stock> stocks;
   final bool isEditing;
 
-  const WatchlistLoaded({
-    required this.stocks,
-    this.isEditing = false,
-  });
-
-  WatchlistLoaded copyWith({
-    List<Stock>? stocks,
-    bool? isEditing,
-  }) {
+  WatchlistLoaded copyWith({List<Stock>? stocks, bool? isEditing}) {
     return WatchlistLoaded(
       stocks: stocks ?? this.stocks,
       isEditing: isEditing ?? this.isEditing,

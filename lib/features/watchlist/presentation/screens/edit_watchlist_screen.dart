@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/watchlist_bloc.dart';
-import '../bloc/watchlist_event.dart';
-import '../bloc/watchlist_state.dart';
-import '../widgets/edit_stock_item.dart';
+import 'package:watchlist_app/features/watchlist/presentation/screens/screens.dart';
 
 /// Screen for managing the order and composition of the watchlist.
 ///
@@ -36,8 +31,8 @@ class EditWatchlistScreen extends StatelessWidget {
                     itemCount: state.stocks.length,
                     onReorder: (oldIndex, newIndex) {
                       context.read<WatchlistBloc>().add(
-                            ReorderWatchlist(oldIndex, newIndex),
-                          );
+                        ReorderWatchlist(oldIndex, newIndex),
+                      );
                     },
                     itemBuilder: (context, index) {
                       final stock = state.stocks[index];
@@ -103,7 +98,10 @@ class EditWatchlistScreen extends StatelessWidget {
               ),
               child: const Text(
                 'Edit other watchlists',
-                style: TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),

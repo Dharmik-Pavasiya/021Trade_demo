@@ -1,23 +1,20 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../domain/repositories/watchlist_repository.dart';
-import 'watchlist_event.dart';
-import 'watchlist_state.dart';
+import 'package:watchlist_app/features/watchlist/presentation/bloc/bloc.dart';
 
 /// Business Logic Component for managing watchlist state.
 ///
 /// Coordinates events and states for loading, reordering, and saving the watchlist.
 class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
-  final WatchlistRepository _repository;
-
   WatchlistBloc({required WatchlistRepository repository})
-      : _repository = repository,
-        super(WatchlistInitial()) {
+    : _repository = repository,
+      super(WatchlistInitial()) {
     on<LoadWatchlist>(_onLoadWatchlist);
     on<ToggleEditMode>(_onToggleEditMode);
     on<ReorderWatchlist>(_onReorderWatchlist);
     on<RemoveStock>(_onRemoveStock);
     on<SaveWatchlist>(_onSaveWatchlist);
   }
+
+  final WatchlistRepository _repository;
 
   Future<void> _onLoadWatchlist(
     LoadWatchlist event,
@@ -27,10 +24,7 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
     emit(WatchlistLoaded(stocks: stocks));
   }
 
-  void _onToggleEditMode(
-    ToggleEditMode event,
-    Emitter<WatchlistState> emit,
-  ) {
+  void _onToggleEditMode(ToggleEditMode event, Emitter<WatchlistState> emit) {
     if (state is WatchlistLoaded) {
       final currentState = state as WatchlistLoaded;
       emit(currentState.copyWith(isEditing: !currentState.isEditing));
@@ -57,10 +51,7 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
     }
   }
 
-  void _onRemoveStock(
-    RemoveStock event,
-    Emitter<WatchlistState> emit,
-  ) {
+  void _onRemoveStock(RemoveStock event, Emitter<WatchlistState> emit) {
     if (state is WatchlistLoaded) {
       final currentState = state as WatchlistLoaded;
       final stocks = List.of(currentState.stocks);

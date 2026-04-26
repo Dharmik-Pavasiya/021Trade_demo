@@ -1,5 +1,4 @@
-import '../../domain/entities/stock.dart';
-import '../../domain/repositories/watchlist_repository.dart';
+import 'package:watchlist_app/features/watchlist/domain/domain.dart';
 
 /// Implementation of [WatchlistRepository] using in-memory storage.
 ///

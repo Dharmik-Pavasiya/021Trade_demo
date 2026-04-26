@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/watchlist_bloc.dart';
-import '../bloc/watchlist_event.dart';
-import '../bloc/watchlist_state.dart';
-import '../widgets/stock_list_item.dart';
-import 'edit_watchlist_screen.dart';
+import 'package:watchlist_app/features/watchlist/presentation/screens/screens.dart';
 
 /// Main screen displaying the watchlist.
 ///
@@ -81,7 +75,12 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
       ),
       child: Row(
         children: [
-          _marketItem('SENSEX 18TH SEP 8...', '1,225.55', '144.50 (13.3...', true),
+          _marketItem(
+            'SENSEX 18TH SEP 8...',
+            '1,225.55',
+            '144.50 (13.3...',
+            true,
+          ),
           const VerticalDivider(),
           _marketItem('NIFTY BANK', '54,168.50', '-18.40 (-0.03...', false),
         ],
@@ -89,7 +88,12 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
     );
   }
 
-  Widget _marketItem(String name, String price, String change, bool isPositive) {
+  Widget _marketItem(
+    String name,
+    String price,
+    String change,
+    bool isPositive,
+  ) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,17 +103,29 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
               Expanded(
                 child: Text(
                   name,
-                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const Text('BSE', style: TextStyle(fontSize: 10, color: Colors.grey)),
+              const Text(
+                'BSE',
+                style: TextStyle(fontSize: 10, color: Colors.grey),
+              ),
             ],
           ),
           const SizedBox(height: 8),
           Row(
             children: [
-              Text(price, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              Text(
+                price,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               const SizedBox(width: 8),
               Text(
                 change,
@@ -139,7 +155,10 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
           children: [
             Icon(Icons.search, color: Colors.grey),
             SizedBox(width: 8),
-            Text('Search for instruments', style: TextStyle(color: Colors.grey)),
+            Text(
+              'Search for instruments',
+              style: TextStyle(color: Colors.grey),
+            ),
           ],
         ),
       ),
@@ -147,15 +166,24 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
   }
 
   Widget _buildTabs() {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         children: [
-          Text('Watchlist 1', style: TextStyle(fontWeight: FontWeight.bold, border: Border(bottom: BorderSide()))),
-          SizedBox(width: 24),
-          Text('Watchlist 5', style: TextStyle(color: Colors.grey)),
-          SizedBox(width: 24),
-          Text('Watchlist 6', style: TextStyle(color: Colors.grey)),
+          Container(
+            padding: const EdgeInsets.only(bottom: 4),
+            decoration: const BoxDecoration(
+              border: Border(bottom: BorderSide(width: 2, color: Colors.black)),
+            ),
+            child: const Text(
+              'Watchlist 1',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          const SizedBox(width: 24),
+          const Text('Watchlist 5', style: TextStyle(color: Colors.grey)),
+          const SizedBox(width: 24),
+          const Text('Watchlist 6', style: TextStyle(color: Colors.grey)),
         ],
       ),
     );
@@ -192,12 +220,30 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
       unselectedItemColor: Colors.grey,
       currentIndex: 0,
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.bookmark_border), label: 'Watchlist'),
-        BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: 'Orders'),
-        BottomNavigationBarItem(icon: Icon(Icons.flash_on_outlined), label: 'GTT+'),
-        BottomNavigationBarItem(icon: Icon(Icons.work_outline), label: 'Portfolio'),
-        BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet_outlined), label: 'Funds'),
-        BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Profile'),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.bookmark_border),
+          label: 'Watchlist',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_cart_outlined),
+          label: 'Orders',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.flash_on_outlined),
+          label: 'GTT+',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.work_outline),
+          label: 'Portfolio',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_balance_wallet_outlined),
+          label: 'Funds',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_outline),
+          label: 'Profile',
+        ),
       ],
     );
   }

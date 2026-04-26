@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:watchlist_app/features/watchlist/presentation/bloc/bloc.dart';
 
 /// Base class for all watchlist events.
 abstract class WatchlistEvent extends Equatable {
@@ -16,10 +16,10 @@ class ToggleEditMode extends WatchlistEvent {}
 
 /// Event to handle reordering of stocks in the list.
 class ReorderWatchlist extends WatchlistEvent {
+  const ReorderWatchlist(this.oldIndex, this.newIndex);
+
   final int oldIndex;
   final int newIndex;
-
-  const ReorderWatchlist(this.oldIndex, this.newIndex);
 
   @override
   List<Object?> get props => [oldIndex, newIndex];
@@ -27,9 +27,9 @@ class ReorderWatchlist extends WatchlistEvent {
 
 /// Event to remove a stock from the watchlist.
 class RemoveStock extends WatchlistEvent {
-  final int index;
-
   const RemoveStock(this.index);
+
+  final int index;
 
   @override
   List<Object?> get props => [index];

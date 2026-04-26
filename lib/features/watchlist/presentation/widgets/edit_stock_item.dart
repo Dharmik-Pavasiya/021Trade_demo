@@ -1,19 +1,13 @@
-import 'package:flutter/material.dart';
-import '../../../core/theme/app_theme.dart';
-import '../../domain/entities/stock.dart';
+import 'package:watchlist_app/features/watchlist/presentation/widgets/widgets.dart';
 
 /// Individual stock item widget for the edit mode.
 ///
 /// Includes drag handle and delete button as per the UI design.
 class EditStockItem extends StatelessWidget {
+  const EditStockItem({super.key, required this.stock, required this.onDelete});
+
   final Stock stock;
   final VoidCallback onDelete;
-
-  const EditStockItem({
-    super.key,
-    required this.stock,
-    required this.onDelete,
-  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +21,7 @@ class EditStockItem extends StatelessWidget {
       child: Row(
         children: [
           // Drag Handle
-          const Icon(
-            Icons.menu,
-            color: Colors.black,
-            size: 20,
-          ),
+          const Icon(Icons.menu, color: Colors.black, size: 20),
           const SizedBox(width: 16),
           // Symbol Name
           Expanded(
@@ -47,11 +37,7 @@ class EditStockItem extends StatelessWidget {
           // Delete Button
           IconButton(
             onPressed: onDelete,
-            icon: const Icon(
-              Icons.delete,
-              color: Colors.black,
-              size: 22,
-            ),
+            icon: const Icon(Icons.delete, color: Colors.black, size: 22),
           ),
         ],
       ),

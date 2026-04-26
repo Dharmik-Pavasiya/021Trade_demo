@@ -1,4 +1,4 @@
-import '../entities/stock.dart';
+import 'package:watchlist_app/features/watchlist/domain/entities/stock.dart';
 
 /// Repository interface for watchlist data management.
 ///

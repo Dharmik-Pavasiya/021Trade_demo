@@ -1,12 +1,10 @@
-import 'package:flutter/material.dart';
-import '../../../core/theme/app_theme.dart';
-import '../../domain/entities/stock.dart';
+import 'package:watchlist_app/features/watchlist/presentation/widgets/widgets.dart';
 
 /// Individual stock item widget for the main watchlist view.
 class StockListItem extends StatelessWidget {
-  final Stock stock;
-
   const StockListItem({super.key, required this.stock});
+
+  final Stock stock;
 
   @override
   Widget build(BuildContext context) {
