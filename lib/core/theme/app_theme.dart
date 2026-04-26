@@ -24,10 +24,7 @@ class AppTheme {
         primary: Colors.black,
         secondary: Colors.grey[600]!,
       ),
-      dividerTheme: const DividerThemeData(
-        thickness: 0.5,
-        space: 1,
-      ),
+      dividerTheme: const DividerThemeData(thickness: 0.5, space: 1),
     );
   }
 
